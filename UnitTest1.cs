@@ -16,6 +16,8 @@ namespace aspnetawesome
             Console.WriteLine("Setup...");
             // FireFox Browser
             Driver = new FirefoxDriver();
+
+
         }
 
         [Test]
