@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace aspnetawesome
 {
@@ -25,7 +26,7 @@ namespace aspnetawesome
 
             // Check if user input value is equal to value in text box
             bool comboControlExactString = comboControl.GetAttribute("value").Equals(value);
-            // Check if passed/fail
+            // Check if passed/fail with print out
             if (comboControlExactString)
             {
                 Console.WriteLine($"Passed with {value}");
@@ -34,6 +35,18 @@ namespace aspnetawesome
             {
                 Console.WriteLine($"Failed with {value}");
             }
+        }
+
+        public static void Click(IWebElement webElement)
+        {
+            webElement.Click();
+        }
+
+        public static void SelectByText(IWebElement webElement, string text)
+        {
+            SelectElement selectElement = new SelectElement(webElement);
+            selectElement.SelectByText(text);
+
         }
     }
 }

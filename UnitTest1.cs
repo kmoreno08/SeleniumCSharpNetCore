@@ -3,9 +3,11 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 
 namespace aspnetawesome
 {
+    [TestFixture()]
     public class Tests : DriverHelper
     {
        
@@ -53,7 +55,21 @@ namespace aspnetawesome
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Buckwheat");
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Oats");
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Barley");
+
+
+
+            ///  Ajax dropdown - Select By Text
+            IWebElement ajaxDropdown = Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed"));
+
+            CustomControl.SelectByText(ajaxDropdown, "Lettuce");
+            CustomControl.SelectByText(ajaxDropdown, "Cauliflower");
+            CustomControl.SelectByText(ajaxDropdown, "Artichoke");
+            CustomControl.SelectByText(ajaxDropdown, "Broccoli");
+            CustomControl.SelectByText(ajaxDropdown, "Celery");
         }
+
+     
+        
     }
 
 
