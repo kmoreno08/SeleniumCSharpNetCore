@@ -37,15 +37,13 @@ namespace aspnetawesome
             }
         }
 
-        public static void Click(IWebElement webElement)
+        
+        // Click on buttonGroup and select by text with correct corresponding ajax dropdown
+        public static void buttonGroupAjaxDropdownSelectByText(IWebElement buttonGroup, IWebElement ajaxDropdown, string text)
         {
-            webElement.Click();
-        }
-
-        public static void SelectByText(IWebElement webElement, string text)
-        {
-            SelectElement selectElement = new SelectElement(webElement);
-            selectElement.SelectByText(text);
+            buttonGroup.Click();
+            SelectElement selectAjaxElement = new SelectElement(ajaxDropdown);
+            selectAjaxElement.SelectByText(text);
 
         }
     }
