@@ -19,16 +19,16 @@ namespace aspnetawesome
             // FireFox Browser
             Driver = new FirefoxDriver();
 
+            // Go to URL
+            Driver.Navigate().GoToUrl("https://demowf.aspnetawesome.com/");
+            // Maximize Window
+            Driver.Manage().Window.Maximize();
 
         }
 
         [Test]
         public void ComboBoxUserInputMatch()
         {
-            // Go to URL
-            Driver.Navigate().GoToUrl("https://demowf.aspnetawesome.com/");
-            // Maximize Window
-            Driver.Manage().Window.Maximize();
           
             // From comboBox, check all values if typed equals the value after click from dropdown
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Almonds");
@@ -54,13 +54,17 @@ namespace aspnetawesome
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Wheat");
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Buckwheat");
             CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Oats");
-            CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Barley");
+            CustomControl.ComboBox("ContentPlaceHolder1_AllMealsCombo", "Barley");   
+        }
 
 
-            // Button group and according Ajax dropdown (Legumes) //
+        [Test]
+        public void buttonGroupAjaxDropdown()
+        {
+            // Ajax drop down by ID
             IWebElement ajaxDropdown = Driver.FindElement(By.Id("ContentPlaceHolder1_Add1-awed"));
+            // Button group and according Ajax dropdown (Legumes) //
             IWebElement legumesButtonGroup = Driver.FindElement(By.XPath("/html/body/form/div[3]/div/div[2]/main/div[1]/div[3]/div[1]/div[2]/div/div/div[2]/div/button[2]"));
-
             CustomControl.buttonGroupAjaxDropdownSelectByText(legumesButtonGroup, ajaxDropdown, "Tomato");
             CustomControl.buttonGroupAjaxDropdownSelectByText(legumesButtonGroup, ajaxDropdown, "Potato");
             CustomControl.buttonGroupAjaxDropdownSelectByText(legumesButtonGroup, ajaxDropdown, "Cucumber");
@@ -69,18 +73,14 @@ namespace aspnetawesome
 
             // Button group and according Ajax dropdown (Fruits) //
             IWebElement fruitsButtonGroup = Driver.FindElement(By.XPath("/html/body/form/div[3]/div/div[2]/main/div[1]/div[3]/div[1]/div[2]/div/div/div[2]/div/button[1]"));
-            
             CustomControl.buttonGroupAjaxDropdownSelectByText(fruitsButtonGroup, ajaxDropdown, "Mango");
             CustomControl.buttonGroupAjaxDropdownSelectByText(fruitsButtonGroup, ajaxDropdown, "Apple");
             CustomControl.buttonGroupAjaxDropdownSelectByText(fruitsButtonGroup, ajaxDropdown, "Papaya");
             CustomControl.buttonGroupAjaxDropdownSelectByText(fruitsButtonGroup, ajaxDropdown, "Banana");
             CustomControl.buttonGroupAjaxDropdownSelectByText(fruitsButtonGroup, ajaxDropdown, "Cherry");
 
-           
-
             // Button group and according Ajax dropdown (Vegetables) //
             IWebElement vegetablesButtonGroup = Driver.FindElement(By.XPath("/html/body/form/div[3]/div/div[2]/main/div[1]/div[3]/div[1]/div[2]/div/div/div[2]/div/button[3]"));
-
             CustomControl.buttonGroupAjaxDropdownSelectByText(vegetablesButtonGroup, ajaxDropdown, "Lettuce");
             CustomControl.buttonGroupAjaxDropdownSelectByText(vegetablesButtonGroup, ajaxDropdown, "Celery");
             CustomControl.buttonGroupAjaxDropdownSelectByText(vegetablesButtonGroup, ajaxDropdown, "Broccoli");
@@ -90,7 +90,6 @@ namespace aspnetawesome
 
             // Button group and according Ajax dropdown (Nuts) //
             IWebElement nutsButtonGroup = Driver.FindElement(By.XPath("/html/body/form/div[3]/div/div[2]/main/div[1]/div[3]/div[1]/div[2]/div/div/div[2]/div/button[4]"));
-
             CustomControl.buttonGroupAjaxDropdownSelectByText(nutsButtonGroup, ajaxDropdown, "Hazelnuts");
             CustomControl.buttonGroupAjaxDropdownSelectByText(nutsButtonGroup, ajaxDropdown, "Chestnuts");
             CustomControl.buttonGroupAjaxDropdownSelectByText(nutsButtonGroup, ajaxDropdown, "Walnuts");
@@ -100,16 +99,13 @@ namespace aspnetawesome
 
             // Button group and according Ajax dropdown (Grains) //
             IWebElement grainsButtonGroup = Driver.FindElement(By.XPath("/html/body/form/div[3]/div/div[2]/main/div[1]/div[3]/div[1]/div[2]/div/div/div[2]/div/button[5]"));
-
             CustomControl.buttonGroupAjaxDropdownSelectByText(grainsButtonGroup, ajaxDropdown, "Rice");
             CustomControl.buttonGroupAjaxDropdownSelectByText(grainsButtonGroup, ajaxDropdown, "Wheat");
             CustomControl.buttonGroupAjaxDropdownSelectByText(grainsButtonGroup, ajaxDropdown, "Buckwheat");
             CustomControl.buttonGroupAjaxDropdownSelectByText(grainsButtonGroup, ajaxDropdown, "Oats");
             CustomControl.buttonGroupAjaxDropdownSelectByText(grainsButtonGroup, ajaxDropdown, "Barley");
+
         }
-
-
-
     }
 
     
